@@ -1,0 +1,54 @@
+<div class="page">
+  <mat-card class="mat-primary mat-toolbar">
+      <mat-card-title>User Profile
+          <span fxFlex>&nbsp;</span>
+          <!-- <button mat-icon-button (click)="back()">
+          <mat-icon>close</mat-icon>
+          </button> -->
+      </mat-card-title>
+  </mat-card>
+  <form [formGroup]="userForm" #form>
+      <mat-card>
+        <mat-card-content fxLayout="column">
+            <!-- <mat-form-field *ngIf="therapist !== null">
+                <mat-select [(value)]="user.therapistId" placeholder="Uw therapeut">
+                  <mat-option [value]="therapist._id">{{therapist.firstName}} {{therapist.lastName}}</mat-option>
+                </mat-select>
+              </mat-form-field> -->
+              <mat-form-field>
+                <input matInput placeholder="Email" [value]="user.email"
+                  required autocomplete="off" [disabled]="true">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="First name" [(ngModel)]="user.firstName" 
+                  required formControlName="firstName" autocomplete="off">
+                <mat-error *ngIf="userForm.controls['firstName'].hasError('required')">First name is required.</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Last name" [(ngModel)]="user.lastName" 
+                  required formControlName="lastName" autocomplete="off">
+                <mat-error *ngIf="userForm.controls['lastName'].hasError('required')">Last name is required.</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Password" [(ngModel)]="user.password" (input)="checkPasswords()"
+                  required type="password" formControlName="password" autocomplete="off">
+                <mat-error *ngIf="userForm.controls['password'].hasError('required')">Password is required.</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Repeat password" [(ngModel)]="repeatPassword" (input)="checkPasswords()"
+                  required type="password" formControlName="passwordRepeat" autocomplete="off">
+                <mat-error *ngIf="userForm.controls['passwordRepeat'].hasError('required')">Passwords is required.</mat-error>
+                <mat-error *ngIf="userForm.controls['passwordRepeat'].hasError('repeat')">Passwords must match.</mat-error>
+              </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" type="submit"
+            (click)="save(userForm)"
+            [disabled]="!userForm.valid || !userForm.dirty">
+            <mat-icon>save</mat-icon>
+            Save
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+</div>

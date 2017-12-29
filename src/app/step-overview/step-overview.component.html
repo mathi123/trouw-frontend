@@ -1,0 +1,30 @@
+<app-step-view *ngFor="let step of steps" [step]="step" (deleted)="delete($event)" (moveUp)="moveUp($event)" (moveDown)="moveDown($event)" [readOnlyMode]="readOnlyMode"></app-step-view>
+<button mat-mini-fab [matMenuTriggerFor]="menu" color="accent" *ngIf="!readOnlyMode">
+  <mat-icon>add</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="create('text')">
+    <mat-icon>format_align_left</mat-icon>
+    Text
+  </button>
+  <button mat-menu-item (click)="create('image')">
+    <mat-icon>collections</mat-icon>
+    Afbeelding
+  </button>
+  <button mat-menu-item (click)="create('video')" disabled>
+    <mat-icon>video_library</mat-icon>
+    Video (niet in demo)
+  </button>
+  <button mat-menu-item (click)="create('audio')">
+    <mat-icon>audiotrack</mat-icon>
+    Audio
+  </button>
+  <button mat-menu-item (click)="create('video-input')" disabled>
+    <mat-icon>videocam</mat-icon>
+    Video Input (niet in demo)
+  </button>
+  <button mat-menu-item (click)="create('audio-input')">
+    <mat-icon>record_voice_over</mat-icon>
+    Audio Input
+  </button>
+</mat-menu>

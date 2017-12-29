@@ -1,0 +1,10 @@
+<div fxLayout="column" fxLayoutGap="5px" *ngIf="!readOnlyMode">
+    <input matInput placeholder="Some Title" [(ngModel)]="step.title" 
+        autocomplete="off" class="stepInputTitle">
+    <textarea matInput placeholder="Some Description" [(ngModel)]="step.description"
+         matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="25" autocomplete="off"></textarea>
+</div>
+<div fxLayout="column" fxLayoutGap="5px" *ngIf="readOnlyMode">
+    <h2>{{step.title}}</h2>
+    <p>{{step.description}}</p>
+</div>

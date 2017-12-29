@@ -1,0 +1,29 @@
+<div class="page">
+  <mat-card class="mat-primary mat-toolbar">
+      <mat-card-title>Login
+          <!-- <span fxFlex>&nbsp;</span>
+          <button mat-icon-button (click)="back()">
+          <mat-icon>close</mat-icon>
+          </button> -->
+      </mat-card-title>
+  </mat-card>
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="loginForm" fxLayout="column" #form (ngSubmit)="login(form)">
+          <mat-form-field>
+            <input matInput placeholder="email" [(ngModel)]="email" 
+              required formControlName="email" autocomplete="off">
+              <mat-error *ngIf="loginForm.controls['email'].hasError('required')">Email is required.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Password" [(ngModel)]="password" 
+                required formControlName="password" autocomplete="off">
+              <mat-error *ngIf="loginForm.controls['password'].hasError('required')">Enter your password.</mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" class="normal-button"
+              [disabled]="!loginForm.valid" type="submit">Login</button>
+            <mat-error *ngIf="error">Wrong user or password!</mat-error>            
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,15 @@
+<div fxLayout="column" fxLayoutGap="10px">
+    <audio *ngIf="step.src" controls="true">
+      <source src="{{serverApi}}/{{ step.src }}" type="audio/webm" />
+    </audio>
+    <div *ngIf="!readOnlyMode || recordReadOnly">
+        <button mat-raised-button class="normal-button" color="primary" (click)="startRecording()" *ngIf="!recording">
+          <mat-icon>mic</mat-icon>
+          Record
+        </button>
+        <button mat-raised-button class="normal-button" color="accent" (click)="stopRecording()" *ngIf="recording">
+          <mat-icon>stop</mat-icon>
+          Stop
+        </button>
+    </div>
+</div>

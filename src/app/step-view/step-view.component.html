@@ -1,0 +1,24 @@
+<mat-card [class.mat-elevation-z0]="readOnlyMode">
+    <mat-card-content>
+        <app-text-step *ngIf="step.type === 'text'" [step]="step" [readOnlyMode]="readOnlyMode"></app-text-step>
+        <app-image-step *ngIf="step.type === 'image'" [step]="step" [readOnlyMode]="readOnlyMode"></app-image-step>
+        <app-video-step *ngIf="step.type === 'video'" [step]="step"></app-video-step>
+        <app-audio-step *ngIf="step.type === 'audio'" [step]="step" [readOnlyMode]="readOnlyMode"></app-audio-step>
+        <app-video-input-step *ngIf="step.type === 'video-input'" [step]="step"></app-video-input-step>
+        <app-audio-step *ngIf="step.type === 'audio-input'" [step]="step" [readOnlyMode]="readOnlyMode" [recordReadOnly]="true"></app-audio-step>
+    </mat-card-content>
+    <mat-card-actions *ngIf="!readOnlyMode">
+        <button mat-icon-button
+            type="button" (click)="up()">
+            <mat-icon>keyboard_arrow_up</mat-icon>
+        </button>
+        <button mat-icon-button
+            type="button" (click)="down()">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+        <button mat-icon-button
+            type="button" (click)="delete()" >
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>
