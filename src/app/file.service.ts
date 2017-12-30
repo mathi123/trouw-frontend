@@ -18,8 +18,8 @@ export class FileService {
       .post<string>(`${environment.api}/file-upload?extension=${extension}`, formData);
   }
 
-  public sendToServer(id, part, blob): Observable<object> {
-    const headers = new HttpHeaders();
+  public sendToServer(id, part, blob, callback) {
+    /*const headers = new HttpHeaders();
     headers.set('Content-type', 'application/octet-stream');
     const options: any = {
       headers: headers,
@@ -27,22 +27,38 @@ export class FileService {
       responseType: 'text'
     };
 
-    return this.httpClient.post(`${environment.api}/file/${id}/part/${part}`, blob, options);
-    /*const url = ;
+    return this.httpClient.post(`${environment.api}/file/${id}/part/${part}`, blob, options);*/
+    const url = `${environment.api}/file/${id}/part/${part}`;
     const oReq = new XMLHttpRequest();
     oReq.open('POST', url, true);
     oReq.setRequestHeader('Content-type', 'application/octet-stream');
     oReq.onload = function (oEvent) {
         console.log(`POST on ${url} was a success!`);
+        callback();
     };
-    oReq.send(blob);*/
+    oReq.send(blob);
   }
-  public createFile(id, partsCount): Observable<string> {
+  public createFile(id, partsCount, format): Observable<string> {
     return this.httpClient.post<string>(`${environment.api}/file`, {
       id: id,
       parts: partsCount,
-      format: 'audio/webm',
+      format: format,
   });
+  }
+  public load(audioContext, url, callback, onError) {
+      const request = new XMLHttpRequest();
+      request.open('GET', url, true);
+      request.responseType = 'arraybuffer';
+
+      // Decode asynchronously
+      request.onload = function () {
+          console.log('audio loaded');
+          audioContext.decodeAudioData(request.response, function (buffer) {
+              const decodedBuffer = buffer;
+              callback(decodedBuffer);
+          }, onError);
+      };
+      request.send();
   }
   /*public create(exercise: Exercise): Observable<string> {
     return this.httpClient.post<string>(`${environment.api}/exercise`, exercise);

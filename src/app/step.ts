@@ -5,4 +5,6 @@ export class Step {
     public title: string;
     public description: string;
     public src: string;
+    public metronome = false;
+    public bpm = 65;
 }

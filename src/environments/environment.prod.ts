@@ -1,5 +1,7 @@
 export const environment = {
   production: true,
-  api: 'http://localhost:3000/api',
-  frontend: 'http://localhost:4200'
+  api: 'http://telefon-api.mitasco.be/api',
+  public: 'http://telefon-api.mitasco.be/public/files',
+  frontend: 'http://telefon.mitasco.be',
+  samples: 'http://telefon-api.mitasco.be/public/samples',
 };

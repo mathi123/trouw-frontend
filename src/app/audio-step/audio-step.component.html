@@ -1,15 +1,23 @@
 <div fxLayout="column" fxLayoutGap="10px">
-    <audio *ngIf="step.src" controls="true">
-      <source src="{{serverApi}}/{{ step.src }}" type="audio/webm" />
-    </audio>
-    <div *ngIf="!readOnlyMode || recordReadOnly">
+    <div *ngIf="!readOnlyMode && recordReadOnly" fxLayout="column" fxLayoutGap="10px">
+        <mat-slide-toggle [(ngModel)]="step.metronome" color="primary">Metronome</mat-slide-toggle>
+        <mat-form-field *ngIf="step.metronome">
+            <input matInput type="number" [(ngModel)]="step.bpm" placeholder="bpm" autocomplete="off">
+        </mat-form-field>
+    </div>
+    <div *ngIf="!readOnlyMode || recordReadOnly" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
         <button mat-raised-button class="normal-button" color="primary" (click)="startRecording()" *ngIf="!recording">
-          <mat-icon>mic</mat-icon>
-          Record
+        <mat-icon>mic</mat-icon>
+        Record
         </button>
         <button mat-raised-button class="normal-button" color="accent" (click)="stopRecording()" *ngIf="recording">
-          <mat-icon>stop</mat-icon>
-          Stop
+        <mat-icon>stop</mat-icon>
+        Stop
         </button>
+        <span *ngIf="!readOnlyMode">&nbsp;or&nbsp;</span>
+        <input *ngIf="!readOnlyMode" type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".wav">
     </div>
+    <audio *ngIf="step.src" controls="true">
+        <source src="{{serverApi}}/{{ step.src }}" />
+    </audio>
 </div>
