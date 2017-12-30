@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Step } from '../step';
 import { FileService } from '../file.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-image-step',
@@ -13,10 +14,14 @@ export class ImageStepComponent implements OnInit {
   @Input()
   public readOnlyMode = false;
 
+  public serverApi: string = null;
 
-  constructor(private fileService: FileService) { }
+  constructor(private fileService: FileService) {
+    this.serverApi = environment.public;
+  }
 
   ngOnInit() {
+
   }
 
   public fileChange(event) {

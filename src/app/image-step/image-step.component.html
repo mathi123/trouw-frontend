@@ -1,4 +1,4 @@
-<img *ngIf="step.src" src="http://localhost:3000/public/files/{{step.src}}" />
+<img *ngIf="step.src" src="{{serverApi}}/{{step.src}}" />
 <div *ngIf="!readOnlyMode">
     <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".jpg,.png">
 </div>
