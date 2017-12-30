@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ContextService } from '../context.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-start',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private contextService: ContextService,
+    private router: Router) { }
 
   ngOnInit() {
+    if (this.contextService.getCurrentUser() !== null) {
+      this.router.navigate(['home']);
+    }
   }
 
 }
