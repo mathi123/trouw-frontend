@@ -47,6 +47,7 @@ import { InvitePatientComponent } from './invite-patient/invite-patient.componen
 import { AudioContextService } from './audio-context.service';
 import { ProfileComponent } from './profile/profile.component';
 import { StartComponent } from './start/start.component';
+import { HotJarService } from './hot-jar.service';
 
 
 @NgModule({
@@ -94,7 +95,7 @@ import { StartComponent } from './start/start.component';
   ],
   entryComponents: [ConfirmDialogComponent],
   providers: [UserService, ContextService, TherapyService, ExerciseService, TaskService, AudioContextService,
-    AssignmentService, FileService, AuthGuard],
+    AssignmentService, FileService, AuthGuard, HotJarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
