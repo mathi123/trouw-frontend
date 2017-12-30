@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   public user: User = new User();
   public unexpectedError = false;
   public userForm: FormGroup;
+  public repeatPassword: string;
 
   constructor(private userService: UserService,
     private activeRoute: ActivatedRoute,
