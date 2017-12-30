@@ -46,6 +46,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { InvitePatientComponent } from './invite-patient/invite-patient.component';
 import { AudioContextService } from './audio-context.service';
 import { ProfileComponent } from './profile/profile.component';
+import { StartComponent } from './start/start.component';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { ProfileComponent } from './profile/profile.component';
     ConfirmDialogComponent,
     InvitePatientComponent,
     ProfileComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,

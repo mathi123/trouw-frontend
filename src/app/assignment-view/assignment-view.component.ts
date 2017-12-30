@@ -44,9 +44,9 @@ export class AssignmentViewComponent implements OnInit {
       .subscribe(params => this.loadQueryParams(params));
   }
 
-  public save(form: NgForm) {
+  public save() {
     this.unexpectedError = false;
-    this.assignment.exerciseId = form.controls['exercise'].value;
+    this.assignment.exerciseId = this.assignmentForm.controls['exercise'].value;
 
     if (this.assignment._id === undefined) {
       this.assignmentService.create(this.assignment)

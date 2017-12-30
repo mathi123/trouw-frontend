@@ -1,18 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar color="primary">
+    <button mat-mini-fab color="primary" routerLink="/">
+      <mat-icon>home</mat-icon>
+    </button>
   <span>{{title}}</span>
   <span fxFlex></span>
   <div *ngIf="user !== null">
-    <button mat-button routerLink="/exercises">
+    <button mat-button routerLink="/exercises" *ngIf="user.isTherapist">
       <mat-icon>record_voice_over</mat-icon>
       Exercises
     </button>
-    <button mat-button routerLink="/patients">
+    <button mat-button routerLink="/patients" *ngIf="user.isTherapist">
         <mat-icon>accessibility</mat-icon>
       Patients
     </button>
-    <button mat-button routerLink="/therapies">
+    <button mat-button routerLink="/therapies" *ngIf="user.isTherapist">
         <mat-icon>event</mat-icon>
+      Therapy
+    </button>
+    <button mat-button routerLink="/home" *ngIf="!user.isTherapist">
+      <mat-icon>event</mat-icon>
       Therapy
     </button>
     <button mat-button [matMenuTriggerFor]="menu">

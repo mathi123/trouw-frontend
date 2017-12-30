@@ -32,7 +32,7 @@ export class ExerciseViewComponent implements OnInit {
       .subscribe(params => this.reloadData(params));
   }
 
-  public save(form: NgForm) {
+  public save() {
     this.unexpectedError = false;
 
     if (this.exercise._id === undefined) {

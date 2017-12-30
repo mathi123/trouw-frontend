@@ -14,6 +14,10 @@ export class TherapyService {
     const userId = this.context.getCurrentUser()._id;
     return this.httpClient.get<Therapy[]>(`${environment.api}/therapy?therapist=${userId}`);
   }
+  public getMyTherapys(): Observable<Therapy[]> {
+    const userId = this.context.getCurrentUser()._id;
+    return this.httpClient.get<Therapy[]>(`${environment.api}/therapy?patient=${userId}`);
+  }
   public getById(id: string): Observable<Therapy> {
     return this.httpClient.get<Therapy>(`${environment.api}/therapy/${id}`);
   }

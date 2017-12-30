@@ -16,6 +16,7 @@ import { InvitePatientComponent } from './invite-patient/invite-patient.componen
 import { TaskViewComponent } from './task-view/task-view.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AssignmentViewComponent } from './assignment-view/assignment-view.component';
+import { StartComponent } from './start/start.component';
 
 const routes: Routes = [
     {
@@ -83,7 +84,7 @@ const routes: Routes = [
     },
     {
         path: '',
-        component: HomeComponent
+        component: StartComponent
     }
 ];
 

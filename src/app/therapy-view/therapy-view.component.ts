@@ -38,9 +38,9 @@ export class TherapyViewComponent implements OnInit {
       .subscribe(patients => this.patients = patients);
   }
 
-  public save(form: NgForm) {
+  public save() {
     this.unexpectedError = false;
-    this.therapy.patientId = form.controls['patient'].value;
+    this.therapy.patientId = this.therapyForm.controls['patient'].value;
 
     if (this.therapy._id === undefined) {
       this.therapyService.create(this.therapy)
