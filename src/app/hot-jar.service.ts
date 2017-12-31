@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class HotJarService {
@@ -10,9 +11,11 @@ export class HotJarService {
     if (this.imported) {
       return;
     }
-    const link = 'https://static.hotjar.com/c/hotjar-';
-    const suffix = '.js?sv=';
-    this.initHotjar(window, document, link, suffix, undefined, undefined);
+    if (environment.production) {
+      const link = 'https://static.hotjar.com/c/hotjar-';
+      const suffix = '.js?sv=';
+      this.initHotjar(window, document, link, suffix, undefined, undefined);
+    }
     this.imported = true;
   }
   private initHotjar(h, o, t, j, a, r) {
