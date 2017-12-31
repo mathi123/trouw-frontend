@@ -25,6 +25,9 @@ export class AssignmentOverviewComponent implements OnInit {
   @Input()
   public allowAdd = false;
 
+  @Input()
+  public route = 'therapy';
+
   public displayedColumns = ['order', 'exercise', 'progress'];
   public dataSource: TypedSortedDataSource<Assignment>;
   public currentAssignment: Assignment;
@@ -41,7 +44,7 @@ export class AssignmentOverviewComponent implements OnInit {
   }
 
   public open(assignment: Assignment) {
-    this.router.navigate(['therapy', this._therapyId, 'assignment', assignment._id]);
+    this.router.navigate([this.route, this._therapyId, 'assignment', assignment._id]);
   }
 
   public create() {

@@ -3,6 +3,7 @@ import { TherapyService } from '../therapy.service';
 import { ContextService } from '../context.service';
 import { User } from '../user';
 import { Therapy } from '../therapy';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,13 +15,14 @@ export class HomeComponent implements OnInit {
   public therapies: Therapy[] = [];
 
   constructor(private therapyService: TherapyService,
-    private contextService: ContextService) { }
+    private contextService: ContextService,
+    private router: Router) { }
 
   ngOnInit() {
     this.reloadData();
   }
   public start(therapy: Therapy) {
-    
+    this.router.navigate(['my-therapy', therapy._id]);
   }
   private reloadData() {
     this.user = this.contextService.getCurrentUser();

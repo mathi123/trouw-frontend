@@ -17,6 +17,7 @@ import { TaskViewComponent } from './task-view/task-view.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AssignmentViewComponent } from './assignment-view/assignment-view.component';
 import { StartComponent } from './start/start.component';
+import { MyTherapyViewComponent } from './my-therapy-view/my-therapy-view.component';
 
 const routes: Routes = [
     {
@@ -60,6 +61,11 @@ const routes: Routes = [
     {
         path: 'therapy/:id',
         component: TherapyViewComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'my-therapy/:id',
+        component: MyTherapyViewComponent,
         canActivate: [AuthGuard]
     },
     {
