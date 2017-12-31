@@ -5,8 +5,8 @@
 
 export const environment = {
   production: false,
-  api: 'http://localhost:3000/api',
-  public: 'http://localhost:3000/public/files',
-  samples: 'http://localhost:3000/public/samples',
+  api: 'https://localhost:3000/api',
+  public: 'https://localhost:3000/public/files',
+  samples: 'https://localhost:3000/public/samples',
   frontend: 'http://localhost:4200'
 };
