@@ -7,5 +7,6 @@ export class Assignment {
     public executionId: string;
     public progress = 0;
     public exercise: Exercise;
+    public execution: Exercise;
     public order: number;
 }

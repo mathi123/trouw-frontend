@@ -48,6 +48,7 @@ import { AudioContextService } from './audio-context.service';
 import { ProfileComponent } from './profile/profile.component';
 import { StartComponent } from './start/start.component';
 import { HotJarService } from './hot-jar.service';
+import { ExecutionViewComponent } from './execution-view/execution-view.component';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { HotJarService } from './hot-jar.service';
     ConfirmDialogComponent,
     InvitePatientComponent,
     ProfileComponent,
-    StartComponent
+    StartComponent,
+    ExecutionViewComponent
   ],
   imports: [
     BrowserModule,
