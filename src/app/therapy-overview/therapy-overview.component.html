@@ -13,7 +13,13 @@
         </mat-card-subtitle>
         <mat-card-content *ngIf="dataSource.list.length > 0">
             <mat-table #table [dataSource]="dataSource" matSort>   
-
+                <ng-container matColumnDef="hasStarted">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Started </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> 
+                        <mat-checkbox [checked]="row.hasStarted" disabled="disabled"></mat-checkbox>
+                    </mat-cell>
+                </ng-container>
+                    
                 <ng-container matColumnDef="patient">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Patient </mat-header-cell>
                     <mat-cell *matCellDef="let row"> {{row.patient.lastName}} {{row.patient.firstName}} </mat-cell>

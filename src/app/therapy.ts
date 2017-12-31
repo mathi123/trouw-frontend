@@ -8,4 +8,5 @@ export class Therapy {
     public therapist: User;
     public therapistId: string;
     public patientId: string;
+    public hasStarted = false;
 }

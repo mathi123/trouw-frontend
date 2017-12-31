@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./therapy-overview.component.css']
 })
 export class TherapyOverviewComponent implements OnInit {
-  public displayedColumns = ['patient', 'title', 'description'];
+  public displayedColumns = ['hasStarted', 'patient', 'title', 'description'];
   public dataSource: TypedSortedDataSource<Therapy>;
   public currentTherapy: Therapy;
 

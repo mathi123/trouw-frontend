@@ -21,6 +21,10 @@ export class TherapyService {
   public getById(id: string): Observable<Therapy> {
     return this.httpClient.get<Therapy>(`${environment.api}/therapy/${id}`);
   }
+  public start(id: string): Observable<boolean> {
+    return this.httpClient.put(`${environment.api}/therapy/${id}/start`, {}, { observe: 'response', responseType: 'text' })
+      .map(response => response.status === 200);
+  }
   public create(therapy: Therapy): Observable<string> {
     this.clean(therapy);
     return this.httpClient.post<string>(`${environment.api}/therapy`, therapy);

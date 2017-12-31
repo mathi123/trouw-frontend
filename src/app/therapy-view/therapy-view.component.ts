@@ -73,6 +73,29 @@ export class TherapyViewComponent implements OnInit {
     this.location.back();
   }
 
+  public start() {
+    const options = {
+      data: {
+        title: 'Confirm',
+        message: 'After the therapy is started, you cannot modify the assignments anymore. Do you wish to start the therapy?'
+      }
+    };
+
+    const dialogRef = this.dialogService.open(ConfirmDialogComponent, options);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.therapyService.start(this.therapy._id)
+          .subscribe(success => this.therapyStarted(success));
+      }
+    });
+  }
+  private therapyStarted(success: boolean) {
+    if (success) {
+      this.therapy.hasStarted = true;
+    }
+  }
+
   private handleSuccess(success: boolean, id: string) {
     if (!success) {
       this.errorOccurred(null);

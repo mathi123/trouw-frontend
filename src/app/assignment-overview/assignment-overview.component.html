@@ -28,7 +28,7 @@
         </mat-table>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button color="primary" (click)="create()">
+    <button mat-button color="primary" (click)="create()" *ngIf="allowAdd">
       <mat-icon>create</mat-icon>
         New
     </button>

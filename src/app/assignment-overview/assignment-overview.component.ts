@@ -22,6 +22,9 @@ export class AssignmentOverviewComponent implements OnInit {
     return this._therapyId;
   }
 
+  @Input()
+  public allowAdd = false;
+
   public displayedColumns = ['order', 'exercise', 'progress'];
   public dataSource: TypedSortedDataSource<Assignment>;
   public currentAssignment: Assignment;

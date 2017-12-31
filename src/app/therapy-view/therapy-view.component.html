@@ -42,12 +42,18 @@
                   <mat-icon>delete</mat-icon>
                   Delete
                 </button>
+                <button mat-button color="primary" type="button"
+                  (click)="start()"
+                  [disabled]="therapy.hasStarted || therapy._id === undefined">
+                  <mat-icon>play_arrow</mat-icon>
+                  Start
+                </button>
               </mat-card-actions>
             </mat-card>
           </form>
     </mat-tab>
     <mat-tab label="Assignments" *ngIf="therapy._id !== undefined">
-      <app-assignment-overview [therapyId]="therapy._id"></app-assignment-overview>
+      <app-assignment-overview [therapyId]="therapy._id" [allowAdd]="!therapy.hasStarted"></app-assignment-overview>
     </mat-tab>
   </mat-tab-group>
 </div>
