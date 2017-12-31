@@ -8,6 +8,7 @@ import { FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
 import { TaskService } from '../task.service';
 import { Task } from '../task';
+import { Exercise } from '../exercise';
 
 @Component({
   selector: 'app-execution-view',
@@ -20,6 +21,7 @@ export class ExecutionViewComponent implements OnInit {
   public assignmentForm: FormGroup;
   public readOnlyMode = false;
   public tasks: Task[] = [];
+  public selectedTask: Task = null;
 
   constructor(private assignmentService: AssignmentService,
     private activeRoute: ActivatedRoute,
@@ -28,6 +30,8 @@ export class ExecutionViewComponent implements OnInit {
     private contextService: ContextService,
     private dialogService: MatDialog,
     private taskService: TaskService) {
+      this.assignment.execution = new Exercise();
+      this.assignment.exercise = new Exercise();
   }
 
   public ngOnInit() {
@@ -54,6 +58,10 @@ export class ExecutionViewComponent implements OnInit {
   private assignmentLoaded(assignment: Assignment) {
     this.assignment = assignment;
     this.taskService.getTasksForExcersise(this.assignment.executionId)
-      .subscribe(tasks => this.tasks = tasks);
+      .subscribe(tasks => this.tasksLoaded(tasks));
+  }
+  private tasksLoaded(tasks: Task[]) {
+    this.tasks = tasks;
+    this.selectedTask = this.tasks[0];
   }
 }

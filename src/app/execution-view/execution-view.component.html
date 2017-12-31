@@ -6,6 +6,47 @@
         <button mat-icon-button (click)="back()">
           <mat-icon>close</mat-icon>
         </button></mat-card-title>
-        <mat-card-subtitle>{{assignment.execution.description}}</mat-card-subtitle>
+        <mat-card-subtitle class="sub-white">{{assignment.execution.description}}</mat-card-subtitle>
+        <!-- <mat-card-content *ngIf="tasks.length > 0">
+          <mat-progress-bar color="accent" [value]="(tasks.indexOf(selectedTask) / tasks.length)*100"></mat-progress-bar>
+        </mat-card-content> -->
   </mat-card>
+  <mat-horizontal-stepper>
+    <mat-step *ngFor="let task of tasks" [label]="task.title">
+        <app-step-overview
+        [readOnlyMode]="true"
+        [steps]="task.steps"></app-step-overview>
+        <mat-card>
+            <mat-card-actions>
+              <button mat-raised-button color="secondary"
+                matStepperPrevious>
+                Previous
+              </button>
+              <button mat-raised-button color="secondary"
+                matStepperNext>
+                Next
+              </button>
+            </mat-card-actions>
+          </mat-card>
+    </mat-step>
+    <mat-step label="Done">
+        <mat-card>
+          <mat-card-title>
+            Done! 
+          </mat-card-title>
+          <mat-card-subtitle>
+              Click save to save your work!
+            </mat-card-subtitle>
+          <mat-card-actions>
+            <button mat-raised-button color="secondary"
+              matStepperPrevious>
+              Previous
+            </button>
+            <button mat-raised-button color="accent" (click)="back()">
+              Save
+            </button>
+          </mat-card-actions>
+        </mat-card>
+    </mat-step>
+  </mat-horizontal-stepper>
 </div>
