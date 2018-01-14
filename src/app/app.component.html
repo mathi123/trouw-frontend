@@ -3,50 +3,16 @@
     <button mat-mini-fab color="primary" routerLink="/">
       <mat-icon>home</mat-icon>
     </button>
-  <span>{{title}}</span>
+    <span>Tine en Mathias</span>
   <span fxFlex></span>
-  <div *ngIf="user !== null">
-    <button mat-button routerLink="/exercises" *ngIf="user.isTherapist">
-      <mat-icon>record_voice_over</mat-icon>
-      Exercises
-    </button>
-    <button mat-button routerLink="/patients" *ngIf="user.isTherapist">
-        <mat-icon>accessibility</mat-icon>
-      Patients
-    </button>
-    <button mat-button routerLink="/therapies" *ngIf="user.isTherapist">
-        <mat-icon>event</mat-icon>
-      Therapy
-    </button>
-    <button mat-button routerLink="/home" *ngIf="!user.isTherapist">
-      <mat-icon>event</mat-icon>
-      Therapy
-    </button>
-    <button mat-button [matMenuTriggerFor]="menu">
-      <mat-icon>account_circle</mat-icon>
-      {{user.firstName}} {{user.lastName}}
-    </button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/profile">
-          <mat-icon>account_circle</mat-icon>
-          My Profile
-        </button>
-      <button mat-menu-item (click)="logout()">
-          <mat-icon>power_settings_new</mat-icon>
-          Log Out
-        </button>
-      </mat-menu>
-  </div>
-  <div *ngIf="user === null">
-      <button mat-button routerLink="/login">
-        <mat-icon>perm_identity</mat-icon>
-        Log in
-      </button>
-      <button mat-button routerLink="/register">
-          <mat-icon>create</mat-icon>
-        Register
-      </button>
-  </div>
+  <button mat-button routerLink="/info">
+    <mat-icon>info_outline</mat-icon>
+    Info
+  </button>
+  <button mat-button routerLink="/register">
+      <mat-icon>create</mat-icon>
+    Aanwezigheid
+  </button>
 </mat-toolbar>
 <div fxLayout="row" fxLayoutAlign="center start">
   <router-outlet></router-outlet>

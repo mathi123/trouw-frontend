@@ -16,9 +16,6 @@ export class StartComponent implements OnInit {
     private hotJarService: HotJarService) { }
 
   ngOnInit() {
-    if (this.contextService.getCurrentUser() !== null) {
-      this.router.navigate(['home']);
-    }
     if (environment.production) {
       this.hotJarService.import();
     }
