@@ -25,8 +25,6 @@ FROM nginx:1.13.3-alpine
 
 ## Copy our default nginx config
 COPY nginx/default.conf /etc/nginx/conf.d/
-COPY nginx/telefon.mitasco.be.crt /etc/nginx/telefon.mitasco.be.crt
-COPY nginx/telefon.mitasco.be.key /etc/nginx/telefon.mitasco.be.key
 
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
