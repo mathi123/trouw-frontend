@@ -1,6 +1,6 @@
 <div class="page">
   <mat-card class="mat-primary mat-toolbar">
-      <mat-card-title>Info
+      <mat-card-title fxLayout="row" fxLayoutAlign="start center"><mat-icon>info_outline</mat-icon>Info
           <span fxFlex>&nbsp;</span>
           <button mat-icon-button (click)="back()">
           <mat-icon>close</mat-icon>
@@ -47,8 +47,8 @@
     </mat-card-content>
   </mat-card>
   <mat-card>
-    <mat-card-title>
-      Locatie
+    <mat-card-title fxLayout="row" fxLayoutAlign="start center">
+      Locatie <mat-icon class="ml5">location_on</mat-icon>
     </mat-card-title>
     <mat-card-content>
       <p>Feestzaal Ter Eeste</p>
@@ -57,8 +57,8 @@
     </mat-card-content>
   </mat-card>
   <mat-card>
-      <mat-card-title>
-        Vrijblijvende cadeautip <mat-icon>mail_outline</mat-icon>
+      <mat-card-title fxLayout="row" fxLayoutAlign="start center">
+        Vrijblijvende cadeautip <mat-icon class="ml5">mail_outline</mat-icon>
       </mat-card-title>
       <mat-card-content>
           <ul>
@@ -68,6 +68,21 @@
               <li>
                 <b>Ether</b>: 0x774674721019061a89fCD312e8040C0Fe67613ce
               </li>
+          </ul>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title fxLayout="row" fxLayoutAlign="start center">Tine en Mathias <mat-icon class="ml5">phone</mat-icon>
+      </mat-card-title>
+      <mat-card-content>
+          <ul>
+              <li>
+                Grensstraat 282, 9000 Gent
+              </li>
+              <li>
+                Tine: +32494485234 - tinevdmaele@gmail.com
+              </li>
+              <li>Mathias: +32496062388 - colpaert.mathias@gmail.com</li>
           </ul>
       </mat-card-content>
     </mat-card>
