@@ -7,4 +7,8 @@ export class User {
     public present: boolean;
     public food: string;
     public persons = 2;
+    public ceremonie = false;
+    public receptie = false;
+    public cantMakeIt = false;
+    public feest = false;
 }

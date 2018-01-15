@@ -6,6 +6,8 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { ContextService } from '../context.service';
 
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -18,12 +20,15 @@ export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
 
   constructor(private userService: UserService,
-    private activeRoute: ActivatedRoute,
+    private activeRoute: ActivatedRoute, private location: Location,
     private contextService: ContextService) {
       this.buildForm();
     }
 
   public ngOnInit() {
+  }
+  public back() {
+    this.location.back();
   }
 
   public save(form: NgForm) {
@@ -34,7 +39,6 @@ export class RegisterComponent implements OnInit {
   private buildForm() {
     this.registerForm = new FormGroup({
         name: new FormControl('', Validators.required),
-        persons: new FormControl('', Validators.required),
     });
   }
   private userCreated(userId: string, user: User) {

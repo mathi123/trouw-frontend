@@ -1,10 +1,10 @@
 <div class="page">
   <mat-card class="mat-primary mat-toolbar">
       <mat-card-title>Aanwezigheid
-          <!-- <span fxFlex>&nbsp;</span>
+          <span fxFlex>&nbsp;</span>
           <button mat-icon-button (click)="back()">
           <mat-icon>close</mat-icon>
-          </button> -->
+          </button>
       </mat-card-title>
   </mat-card>
   <mat-card>
@@ -18,17 +18,16 @@
             required autocomplete="off">
           <mat-error *ngIf="registerForm.controls['name'].hasError('required')">Dit veld is verplicht.</mat-error>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Personen" [(ngModel)]="user.persons" formControlName="persons" 
-              required autocomplete="off" type="number">
-            <mat-error *ngIf="registerForm.controls['persons'].hasError('required')">Dit veld is verplicht.</mat-error>
-          </mat-form-field>
-        <!-- <mat-form-field>
-          <input matInput placeholder="Aantal personen" [(ngModel)]="user.firstName" 
-            required formControlName="firstName" autocomplete="off">
-          <mat-error *ngIf="registerForm.controls['firstName'].hasError('required')">First name is required.</mat-error>
-        </mat-form-field> -->
-        
+        <mat-checkbox [(checked)]="user.ceremonie">
+            Aanwezig ceremonie - 16h30
+        </mat-checkbox>
+        <mat-checkbox [(checked)]="user.receptie">
+            Aanwezig receptie - 18h
+          </mat-checkbox>
+        <mat-checkbox [(checked)]="user.cantMakeIt">
+            Niet aanwezig
+        </mat-checkbox>
+
         <button mat-raised-button color="primary"
           [disabled]="!registerForm.valid" type="submit">Versturen</button>
       </form>
