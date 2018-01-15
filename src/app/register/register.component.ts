@@ -19,6 +19,8 @@ export class RegisterComponent implements OnInit {
   public repeatPassword: string;
   public registerForm: FormGroup;
   public saved = false;
+  public oneChecked = false;
+  public error = false;
 
   constructor(private userService: UserService,
     private activeRoute: ActivatedRoute, private location: Location,
@@ -34,7 +36,13 @@ export class RegisterComponent implements OnInit {
 
   public save(form: NgForm) {
     this.userService.create(this.user)
-      .subscribe(userId => this.userCreated(userId, this.user));
+      .subscribe(userId => this.userCreated(userId, this.user),
+      (error) => this.error = true);
+  }
+
+  public check() {
+    this.oneChecked = this.user.receptie || this.user.ceremonie || this.user.feest || this.user.cantMakeIt;
+    console.log(this.oneChecked);
   }
 
   private buildForm() {

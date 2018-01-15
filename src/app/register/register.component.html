@@ -12,38 +12,45 @@
       Fill in the fields below to create an account.
     </mat-card-subtitle> -->
     <mat-card-content *ngIf="!saved">
-      <form [formGroup]="registerForm" fxLayout="column" #form (ngSubmit)="save(form)">
+      <form [formGroup]="registerForm" fxLayout="column" fxLayoutGap="5px" #form (ngSubmit)="save(form)">
         <mat-form-field>
           <input matInput placeholder="Namen" [(ngModel)]="user.name" formControlName="name" 
             required autocomplete="off">
           <mat-error *ngIf="registerForm.controls['name'].hasError('required')">Dit veld is verplicht.</mat-error>
         </mat-form-field>
-        <mat-checkbox [(checked)]="user.ceremonie">
+        <mat-checkbox [(ngModel)]="user.ceremonie"
+        [disabled]="user.cantMakeIt"
+        [ngModelOptions]="{standalone: true}" (change)="check()">
             Aanwezig ceremonie - 16h30
         </mat-checkbox>
-        <mat-checkbox [(checked)]="user.receptie">
+        <mat-checkbox [(ngModel)]="user.receptie"
+        [disabled]="user.cantMakeIt" [ngModelOptions]="{standalone: true}" (change)="check()">
             Aanwezig receptie - 18h
           </mat-checkbox>
-        <mat-checkbox [(checked)]="user.cantMakeIt">
+        <mat-checkbox [(ngModel)]="user.cantMakeIt" [ngModelOptions]="{standalone: true}" (change)="check()">
             Niet aanwezig
         </mat-checkbox>
         <mat-form-field>
-            <textarea matInput placeholder="Opmerkingen eten en/of allergieën"
-            formControlName="food"  [(ngModel)]="user.food">
+            <textarea matInput placeholder="Opmerkingen eten (vegetarisch, allergieën, ...)"
+            formControlName="food" matTextareaAutosize [(ngModel)]="user.food">
             </textarea>
         </mat-form-field>
         <mat-form-field>
-            <textarea matInput placeholder="Suggesties muziek"
+            <textarea matInput placeholder="Suggesties muziek" matTextareaAutosize
             formControlName="songs"  [(ngModel)]="user.songs">
             </textarea>
         </mat-form-field>
         <button mat-raised-button color="primary"
-          [disabled]="!registerForm.valid" type="submit">Versturen</button>
+          [disabled]="!registerForm.valid || !oneChecked" type="submit">Versturen</button>
       </form>
     </mat-card-content>
     <mat-card-content *ngIf="saved">
       <h1 mat-title>Bedankt!</h1>
       <p>Uw reactie werd opgeslagen.</p>
+    </mat-card-content>
+    <mat-card-content *ngIf="error">
+      <h1 mat-title>Oeps!</h1>
+      <mat-error>Er ging iets fout bij het opslaan van je reactie! Geef je ons een seintje? (+32496062388)</mat-error>
     </mat-card-content>
   </mat-card>
 </div>
