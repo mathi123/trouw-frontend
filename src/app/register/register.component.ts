@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { ContextService } from '../context.service';
 
 import { Location } from '@angular/common';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -21,6 +22,7 @@ export class RegisterComponent implements OnInit {
   public saved = false;
   public oneChecked = false;
   public error = false;
+  public showFeest = false;
 
   constructor(private userService: UserService,
     private activeRoute: ActivatedRoute, private location: Location,
@@ -29,6 +31,7 @@ export class RegisterComponent implements OnInit {
     }
 
   public ngOnInit() {
+    this.showFeest = environment.feest;
   }
   public back() {
     this.location.back();

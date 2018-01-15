@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContextService } from '../context.service';
 import { Router } from '@angular/router';
 import { HotJarService } from '../hot-jar.service';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-start',
