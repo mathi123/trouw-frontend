@@ -27,7 +27,8 @@
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+        "feest": "environments/environment.feest.ts",
+        "receptie": "environments/environment.receptie.ts"
       }
     }
   ],
