@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
   public therapist: User = null;
   public repeatPassword: string;
   public registerForm: FormGroup;
+  public saved = false;
 
   constructor(private userService: UserService,
     private activeRoute: ActivatedRoute, private location: Location,
@@ -39,10 +40,11 @@ export class RegisterComponent implements OnInit {
   private buildForm() {
     this.registerForm = new FormGroup({
         name: new FormControl('', Validators.required),
+        food: new FormControl(''),
+        songs: new FormControl('')
     });
   }
   private userCreated(userId: string, user: User) {
-    user._id = userId;
-    this.contextService.setCurrentUser(user);
+    this.saved = true;
   }
 }

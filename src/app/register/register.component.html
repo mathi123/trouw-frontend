@@ -11,7 +11,7 @@
     <!-- <mat-card-subtitle>
       Fill in the fields below to create an account.
     </mat-card-subtitle> -->
-    <mat-card-content>
+    <mat-card-content *ngIf="!saved">
       <form [formGroup]="registerForm" fxLayout="column" #form (ngSubmit)="save(form)">
         <mat-form-field>
           <input matInput placeholder="Namen" [(ngModel)]="user.name" formControlName="name" 
@@ -27,10 +27,23 @@
         <mat-checkbox [(checked)]="user.cantMakeIt">
             Niet aanwezig
         </mat-checkbox>
-
+        <mat-form-field>
+            <textarea matInput placeholder="Opmerkingen eten en/of allergieën"
+            formControlName="food"  [(ngModel)]="user.food">
+            </textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput placeholder="Suggesties muziek"
+            formControlName="songs"  [(ngModel)]="user.songs">
+            </textarea>
+        </mat-form-field>
         <button mat-raised-button color="primary"
           [disabled]="!registerForm.valid" type="submit">Versturen</button>
       </form>
+    </mat-card-content>
+    <mat-card-content *ngIf="saved">
+      <h1 mat-title>Bedankt!</h1>
+      <p>Uw reactie werd opgeslagen.</p>
     </mat-card-content>
   </mat-card>
 </div>
