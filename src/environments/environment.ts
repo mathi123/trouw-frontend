@@ -6,7 +6,4 @@
 export const environment = {
   production: false,
   api: 'https://localhost:3000/api',
-  public: 'https://localhost:3000/public/files',
-  samples: 'https://localhost:3000/public/samples',
-  frontend: 'http://localhost:4200'
 };
