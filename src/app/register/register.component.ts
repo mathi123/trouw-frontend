@@ -56,6 +56,7 @@ export class RegisterComponent implements OnInit {
     });
   }
   private userCreated(userId: string, user: User) {
+    this.error = false;
     this.saved = true;
   }
 }
