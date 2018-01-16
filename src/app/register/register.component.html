@@ -14,33 +14,33 @@
     <mat-card-content *ngIf="!saved">
       <form [formGroup]="registerForm" fxLayout="column" fxLayoutGap="5px" #form (ngSubmit)="save(form)">
         <mat-form-field>
-          <input matInput placeholder="Namen" [(ngModel)]="user.name" formControlName="name" 
+          <input matInput placeholder="namen" [(ngModel)]="user.name" formControlName="name" 
             required autocomplete="off">
           <mat-error *ngIf="registerForm.controls['name'].hasError('required')">Dit veld is verplicht.</mat-error>
         </mat-form-field>
         <mat-checkbox [(ngModel)]="user.ceremonie"
         [disabled]="user.cantMakeIt"
         [ngModelOptions]="{standalone: true}" (change)="check()">
-            Aanwezig ceremonie - 16h30
+            aanwezig ceremonie om 16:30
         </mat-checkbox>
-        <mat-checkbox [(ngModel)]="user.receptie"
+        <mat-checkbox [(ngModel)]="user.receptie" *ngIf="!showFeest"
         [disabled]="user.cantMakeIt" [ngModelOptions]="{standalone: true}" (change)="check()">
-          Aanwezig receptie vanaf 17h30
+          aanwezig receptie vanaf 17:30
         </mat-checkbox>
         <mat-checkbox [(ngModel)]="user.feest" *ngIf="showFeest"
         [disabled]="user.cantMakeIt" [ngModelOptions]="{standalone: true}" (change)="check()">
-          Aanwezig feest vanaf 19h30
+          aanwezig receptie en avondfeest vanaf 17:30
         </mat-checkbox>
         <mat-checkbox [(ngModel)]="user.cantMakeIt" [ngModelOptions]="{standalone: true}" (change)="check()">
-            Niet aanwezig
+            niet aanwezig
         </mat-checkbox>
         <mat-form-field>
-            <textarea matInput placeholder="Opmerkingen eten (vegetarisch, allergieën, ...)"
+            <textarea matInput placeholder="voedingsrestricties (vegetariër, allergieën, ...)"
             formControlName="food" matTextareaAutosize [(ngModel)]="user.food">
             </textarea>
         </mat-form-field>
         <mat-form-field>
-            <textarea matInput placeholder="Suggesties muziek" matTextareaAutosize
+            <textarea matInput placeholder="mijn favoriete dansplaten" matTextareaAutosize
             formControlName="songs"  [(ngModel)]="user.songs">
             </textarea>
         </mat-form-field>

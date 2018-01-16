@@ -1,0 +1,6 @@
+.thumb1 { 
+    background: url('/assets/logo.svg') 50% 50% no-repeat; /* 50% 50% centers image in div */
+    width: 340px;
+    height: 461px;
+  }
+  
