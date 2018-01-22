@@ -34,12 +34,12 @@
         <mat-checkbox [(ngModel)]="user.cantMakeIt" [ngModelOptions]="{standalone: true}" (change)="check()">
             niet aanwezig
         </mat-checkbox>
-        <mat-form-field>
+        <mat-form-field *ngIf="showFeest">
             <textarea matInput placeholder="voedingsrestricties (vegetariër, allergieën, ...)"
             formControlName="food" matTextareaAutosize [(ngModel)]="user.food">
             </textarea>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field *ngIf="showFeest">
             <textarea matInput placeholder="mijn favoriete dansplaten" matTextareaAutosize
             formControlName="songs"  [(ngModel)]="user.songs">
             </textarea>
