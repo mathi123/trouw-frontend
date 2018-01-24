@@ -38,10 +38,13 @@
         <li>
           <b>ceremonie</b> om 16:30
         </li>
-        <li>
-          <b>recepie</b> om 17:30
+        <li *ngIf="!showFeest">
+          <b>receptie</b> van 17:30 tot 19:30
         </li>
-        <li>
+        <li *ngIf="showFeest">
+          <b>receptie</b> om 17:30
+        </li>
+        <li *ngIf="showFeest">
           <b>feest</b> om 19:30
         </li>
       </ul>

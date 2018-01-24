@@ -25,7 +25,7 @@
         </mat-checkbox>
         <mat-checkbox [(ngModel)]="user.receptie" *ngIf="!showFeest"
         [disabled]="user.cantMakeIt" [ngModelOptions]="{standalone: true}" (change)="check()">
-          aanwezig receptie vanaf 17:30
+          aanwezig receptie van 17:30 tot 19:30
         </mat-checkbox>
         <mat-checkbox [(ngModel)]="user.feest" *ngIf="showFeest"
         [disabled]="user.cantMakeIt" [ngModelOptions]="{standalone: true}" (change)="check()">
